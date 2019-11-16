@@ -9,20 +9,12 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class HeroesComponent implements OnInit {
 
-  hero: Hero = { id: 1, name: 'windStorm' };
-
   heroes: Hero[] = [];
-
-  selectedHero: Hero;
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
     this.heroService.getHeroes().subscribe((res: HttpResponse<Hero[]>) => this.heroes = res.body);
-  }
-
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
   }
 
 }
